@@ -9,4 +9,4 @@ router_note = APIRouter(
 
 @router_note.get("/")
 def Home():
-	return 'yes'
+	return {'Hello':'World'}

@@ -1,5 +1,4 @@
 # This file is uses to create new app with 'python manage.py --app <name>'
-
 import os
 import sys
 from plugin import examples
