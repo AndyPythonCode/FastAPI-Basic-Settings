@@ -3,7 +3,7 @@ import settings
 from fastapi import FastAPI
 from database.db import metadata, engine, database
 
-app = FastAPI(title='Tech With Tim', version='0.0.1')
+app = FastAPI(title='Init', version='0.0.1', docs_url='/')
 
 # Run every models in folder apps
 settings.MODELS()
