@@ -2,11 +2,11 @@
 
 from fastapi import APIRouter
 
-router_note = APIRouter(
-	prefix="/note",
-	tags=["Note"]
+router_example = APIRouter(
+	prefix="/example",
+	tags=["Example"]
 )
 
-@router_note.get("/")
-def Home():
-	return {'Hello':'World'}
+@router_example.get("/")
+def Home_Example(): 
+	return {"Hello":"World"}

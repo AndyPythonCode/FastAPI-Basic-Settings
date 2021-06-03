@@ -1,29 +1,53 @@
-# FASTAPI FRAMEWORK
+<h1 align="center">
+    <em>FastAPI Framework, Structure</em>
+</h1>
+
+<p align="center">
+  <a href="https://fastapi.tiangolo.com"><img src="https://i.ibb.co/ZTgxXGp/python.jpg" alt="FastAPI"></a>
+</p>
 
 # Database
-    he creado una conexion usando SQLAlchemy ORM de manera asincrona
+    He creado una conexion usando SQLAlchemy ORM de manera asincrona
 
-# apps/manage.py
-    esta va hacer mi lista de comando, hasta el momento solo cuenta con una:
+* Sqlite: 
+    * default
+* Postgresql: 
+    * pip install databases[postgresql]
+* Mysql: 
+    * pip install databases[mysql]
+    * pip install mysqlclient
 
-* ## __python apps/manage.py --app [name]
-    se utiliza para crear una nueva aplicacion con una estructura de ejemplo.
+# apps folder
+    Incluye cada aplicacion nueva creada
+    
+* __init file__: este archivo contiene ROUTERS_APPS, cuando creas una aplicacion nueva (folder) solo tiene que incluir 
+el respectivo folder adentro de la tupla.
+
+# manage
+    Esta va hacer mi lista de comando, hasta el momento solo cuenta con una:
+
+1. ### __python apps/manage.py --app [name]__
+    Se utiliza para crear una nueva aplicacion con una estructura de ejemplo.
+
+# settings
+    Aquí hay una lista de configuraciones disponibles en el núcleo
 
 # Plugin 
-* ## __execute_models:__ con esto logro podrer buscar en la carpeta apps en cada carpeta el archivo models.py.
-    ¿Que logro con esto?
-    Bueno de esta manera me simplifico bastante, de tal modo que si quiero crear otras rutas (es decir, nuevas api) 
-    solo necesito crear otra carpeta y dentro de ella creo un models.py y ya mis nuevas tablas se veran reflejada dentro
-    del mismo
-* ## __example:__ esta es la estructura que yo necesito seguir cuando create una nueva app
+    Los plugins son pequeños programas complementarios que amplían las funciones de aplicaciones
+
+1. __example:__ esta es la estructura que yo necesito seguir cuando create una nueva app
     Me simplifico bastante, de esa manera ahorro tiempo escribiendo la misma estructura.
 
-# Paquetes
-    * pip install databases[sqlite]
-        - aiosqlite
-        - SQLAlchemy
-    * pip install uvicorn
-    * pip install fastapi
+# Paquetes instalados default
+    Paquetes ya instalados.
+
+* pip install databases[sqlite]
+    * aiosqlite
+    * SQLAlchemy
+* pip install uvicorn
+* pip install fastapi
 
 # vercel.json
+    Vercel es una plataforma en la nube para sitios estáticos y funciones sin servidor que se adapta perfectamente a su flujo de trabajo. 
+
 * para hacer un despliegue en la plataforma de vercel, solo instala la __CLI vercel__ y ejecuta el commando __vercel .__

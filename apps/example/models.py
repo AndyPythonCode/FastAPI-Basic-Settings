@@ -3,9 +3,9 @@
 import sqlalchemy 
 from database.db import metadata
 
-notes = sqlalchemy.Table("notes", 
+example = sqlalchemy.Table("example", 
 	metadata, 
 	sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-	sqlalchemy.Column("text", sqlalchemy.String),
+	sqlalchemy.Column("text", sqlalchemy.String(255)),
 	sqlalchemy.Column("completed", sqlalchemy.Boolean),
 )

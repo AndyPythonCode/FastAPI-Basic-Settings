@@ -1,23 +1,25 @@
-import apps
 import settings
 from fastapi import FastAPI
 from database.db import metadata, engine, database
 
-app = FastAPI(title='Init', version='0.0.1', docs_url='/')
-
-# Run every models in folder apps
-settings.MODELS()
+#Init
+app = FastAPI(**settings.API_METADATA)
 
 # Create the database tables
 metadata.create_all(engine)
 
-#Adding routers
-settings.URL_PATTERNS(apps.ROUTERS_APPS, app)
+# CORS (Cross-Origin Resource Sharing)
+app.add_middleware(**settings.MIDDLEWARE)
 
+#Adding routers
+settings.URL_PATTERNS(app)
+
+#Every get in
 @app.on_event('startup')
 async def startup():
     await database.connect()
 
+#Every get out
 @app.on_event('shutdown')
 async def shutdown():
     await database.disconnect()

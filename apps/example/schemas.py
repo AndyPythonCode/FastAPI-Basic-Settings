@@ -3,6 +3,6 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class SchemasNotes(BaseModel):
+class SchemasExample(BaseModel):
 	text: str
 	completed: Optional[bool]
