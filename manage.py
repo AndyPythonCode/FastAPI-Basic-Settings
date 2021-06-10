@@ -1,13 +1,14 @@
-# This file is uses to create new app with 'python manage.py --app <name>'
+# This file is for command-line
 import os
 import sys
 import plugin
+import asyncio
 
 FOLDER_BASE: str = '\\apps'
 FOLDER_URL: str = f"{os.getcwd()}{FOLDER_BASE}"
 
 for index, command in enumerate(sys.argv):
-    # Create new app
+    # Create new app [ 'python manage.py --app <name>' ]
     if command == '--app':
         if not os.path.exists(f'{FOLDER_URL}\\{sys.argv[index+1]}'):
             os.makedirs(f'{FOLDER_URL}\\{sys.argv[index+1]}')
@@ -24,3 +25,10 @@ for index, command in enumerate(sys.argv):
                     f.close()
         else:
             raise FileExistsError('You already has this folder, try another name')
+    
+    # Drop table [ python manage.py --drop <name> ]
+    if command == '--drop':
+        asyncio.run(plugin.ddl.dropTable(sys.argv[-1]))
+    
+    if command == '--createsuperuser':
+        asyncio.run(plugin.ddl.createsuperuser())
