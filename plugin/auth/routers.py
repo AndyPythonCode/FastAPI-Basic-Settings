@@ -106,6 +106,7 @@ async def read_users_me(current_user: UserInDB = Depends(get_current_user)):
 
 @router_auth.get("/logout")
 async def logout(token: str = Depends(oauth2_scheme)):
-	query = revoked_token.insert().values(token=token)
+    # En models.py se encuentra un trigger si desea eliminar los token que exceden el tiempo
+	query = revoked_token.insert().values(token=token, date=datetime.utcnow() + timedelta(hours=settings.ACCESS_TOKEN_EXPIRE_HOURS))
 	await database.execute(query)
 	return {'User':'Logout'}
