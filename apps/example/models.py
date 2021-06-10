@@ -1,4 +1,5 @@
 # Create you own tables inside database.
+# https://docs.sqlalchemy.org/en/14/core/metadata.html
 
 import sqlalchemy 
 from database.db import metadata
